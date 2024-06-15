@@ -10,7 +10,7 @@ ___
 > > Original Thesis Publication is available at: [From Voice to Virtuosity DDSP-based Timbre Transfer](https://github.com/user-attachments/files/15848685/From.Voice.to.Virtuosity.DDSP-based.Timbre.Transfer.pdf)
 > > 
 > > Online Supplement available at: [***Reki Sounds [Password: auravox]***](https://www.rekisounds.com/thesis).
-___
+
 # GUI Overview
 ![AURAVOX - GITREPO_GUI_EXPLAINED_NEW](https://github.com/Ikerlandarech/AuraVox/assets/91797318/f3475995-c541-4a4e-af10-ecbe075d712e)
 
