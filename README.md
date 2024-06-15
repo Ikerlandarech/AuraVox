@@ -37,4 +37,6 @@ Integrating the decoder posed an additional challenge due to the limited selecti
 One of the primary implementation challenges has been the variability in frame rates, stemming from differing user block sizes and sample rates, alongside a fixed model input size (64ms), hop size (20ms), and sample rate (16kHz). This disparity is addressed through resampling, FIFOs at input and output stages, and threading inference separately. Given that the pretrained models are trained at 16kHz, input audio is downsampled to this rate before inference. Subsequently, synthesized audio is upsampled to the original user sample rate.
 
 # DISTRIBUTION
+https://github.com/Ikerlandarech/AuraVox/assets/91797318/65ce21a2-6265-4ef7-8e34-d12680673542
+
 
