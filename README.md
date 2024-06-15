@@ -2,11 +2,21 @@
 # AURAVOX
 
 AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer.
+In this project, we aim to take vocal expressiveness to the next level. Combining the organic world of the human voice with the acoustic world opens a whole new world of possibilities keeping this human organic quality remain in the expression and articulation of the instrument sound. AuraVox supports 7 TensorFlow Models.
 
 ![AURAVOX - GITREPO_GUI_EXPLAINED_NEW](https://github.com/Ikerlandarech/AuraVox/assets/91797318/f3475995-c541-4a4e-af10-ecbe075d712e)
 
-Running the DDSP TensorFlow implementation within a VST presents a significant computational challenge. Initially, the model architecture presented during the prototyping needs to be translated into an audio plugin architecture, in this study this has been done by integrating the models into the C++ codebase using the TensorFlow C API, containing its corresponding CUDA kernels and backward pass implementations.
+# ABSTRACT:
+Timbre is a crucial but elusive feature of music; it originates in the basic physical structure of sound waves but blossoms to touch upon a range of perceptual and social processes that are fundamental to how we derive meaning and emotion from music. This thesis explores timbre transfer with a new Differential Digital Signal Processing (DDSP)-based approach that leverages strong inductive biases without losing the expressive power of deep neural networks and end-to-end learning. By seamlessly integrating classic signal processing synthesizers as differentiable interpretable functions within a neural network, this method achieves high-fidelity generation without relying on large black-box autoregressive models or adversarial losses. Thus, gaining a domain-appropriate strong inductive bias and enabling a new interpretable representation and modular framework, based on parametric signal processors, to generative modeling. In this physically grounded approach, fundamental frequency and loudness envelopes are explicitly presented as domain-specific conditioning features to the model, which predicts the timbre via time-varying harmonic amplitudes and filtered noise, yielding an efficient end-to-end backpropagation and reducing model complexity and data requirements. This study presents state-of-the-art results through self-recorded trained models and demonstrates AuraVox, a virtual instrument implementation that enables real-time timbre transfer.
+
+# SOMETHING LIKE METHODOLOGY
+
+Initially, the model architecture presented during the prototyping needs to be translated into an audio plugin architecture, in this study this has been done by integrating the models into the C++ codebase using the TensorFlow C API, containing its corresponding CUDA kernels and backward pass implementations.
 For model inference, all TensorFlow computations are executed on a separate thread leveraging TensorFlow Lite, a huge optimization alternative for using the models without experiencing buffer underruns in the main audio processing thread.
+
+The following pipeline architecture diagram illustrates the system's structure.
+
+![AURAVOX - GITREPO_BLOCK_DIAGRAM](https://github.com/Ikerlandarech/AuraVox/assets/91797318/e2af76cb-9197-4e5a-bd3d-c1c15df5a7a3)
 
 As outlined in the proposed timbre transfer model architecture, the CREPE Large model serves as the pitch tracking network algorithm to extract the ground truth fundamental frequency. However, due to constraints within the audio plugin architecture, a smaller CREPE model known as CREPE Micro, trained on approximately ~160k parameters, is employed in this implementation. This model predicts logits of the larger CREPE Large model, which contains x137 times more parameters.
 
