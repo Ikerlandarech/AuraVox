@@ -1,6 +1,8 @@
 # AURAVOX
 
-AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer. 
+AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer.
+
+The aim of AuraVox is to elevate vocal expressiveness by merging the organic qualities of the human voice with the acoustic properties of instruments. This fusion opens a new realm of possibilities, preserving the human organic quality in the expression and articulation of the instrument sound.
 
 <sup>_This project is part of the thesis ***From Voice to Virtuosity: DDSP-based Timbre Transfer*** by Iker Landarech presented at Universitat Pompeu Fabra, Barcelona in July 2024._</sup>
 
@@ -8,7 +10,6 @@ AuraVox is a virtual instrument built in C++ that performs real-time timbre tran
 > > Original Thesis Publication is available at: [From Voice to Virtuosity DDSP-based Timbre Transfer](https://github.com/user-attachments/files/15848685/From.Voice.to.Virtuosity.DDSP-based.Timbre.Transfer.pdf)
 > > 
 > > Online Supplement available at: [***Reki Sounds [Password: auravox]***](https://www.rekisounds.com/thesis).
-The aim of AuraVox is to elevate vocal expressiveness by merging the organic qualities of the human voice with the acoustic properties of instruments. This fusion opens a new realm of possibilities, preserving the human organic quality in the expression and articulation of the instrument sound.
 
 # GUI Overview
 ![AURAVOX - GITREPO_GUI_EXPLAINED_NEW](https://github.com/Ikerlandarech/AuraVox/assets/91797318/f3475995-c541-4a4e-af10-ecbe075d712e)
