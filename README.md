@@ -2,6 +2,9 @@
 # AURAVOX
 
 AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer.
+
+AuraVox is an initiative part of the thesis ***From Voice to Virtuosity: DDSP-based Timbre Transfer*** by Iker Landarech presented at Universitat Pompeu Fabra (July 2024).
+
 In this project, we aim to take vocal expressiveness to the next level. Combining the organic world of the human voice with the acoustic world opens a whole new world of possibilities keeping this human organic quality remain in the expression and articulation of the instrument sound. AuraVox supports 7 TensorFlow Models.
 
 ![AURAVOX - GITREPO_GUI_EXPLAINED_NEW](https://github.com/Ikerlandarech/AuraVox/assets/91797318/f3475995-c541-4a4e-af10-ecbe075d712e)
