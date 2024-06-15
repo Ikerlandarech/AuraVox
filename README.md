@@ -2,7 +2,7 @@
 
 AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer. 
 
-<small>_This project is part of the thesis ***From Voice to Virtuosity: DDSP-based Timbre Transfer*** by Iker Landarech presented at Universitat Pompeu Fabra, Barcelona in July 2024._</small>
+<sub><sup>_This project is part of the thesis ***From Voice to Virtuosity: DDSP-based Timbre Transfer*** by Iker Landarech presented at Universitat Pompeu Fabra, Barcelona in July 2024._</sup></sub>
 
 > More information can be found at:
 > > Original Thesis Publication is available at: [From Voice to Virtuosity DDSP-based Timbre Transfer](https://github.com/user-attachments/files/15848685/From.Voice.to.Virtuosity.DDSP-based.Timbre.Transfer.pdf)
