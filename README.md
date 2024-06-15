@@ -4,7 +4,7 @@
 AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer.
 
 <div align="center">
-    <img src="https://drive.google.com/file/d/1lLPBiA_qCiim93lpLqX7AeoLPewWiako/view?usp=drive_link" width="200px" alt="logo"></img>
+    ![Firefly 20240508122757](https://github.com/Ikerlandarech/AuraVox/assets/91797318/aa2c78d1-f4ca-4a4a-b5c7-4b7e4546fff2)
 </div>
 
 Running the DDSP TensorFlow implementation within a VST presents a significant computational challenge. Initially, the model architecture presented during the prototyping needs to be translated into an audio plugin architecture, in this study this has been done by integrating the models into the C++ codebase using the TensorFlow C API, containing its corresponding CUDA kernels and backward pass implementations.
