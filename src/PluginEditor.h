@@ -28,7 +28,6 @@
 #include "sections/ControlSection.h"
 #include "PluginProcessor.h"
 #include "sections/StudioSection.h"
-#include "ui/ContentComponent.h"
 #include <JuceHeader.h>
 
 //==============================================================================
@@ -51,7 +50,6 @@ private:
     ControlSection controlSection;
 
     TFGAuroVoxStudioAudioProcessor& audioProcessor;
-    ContentComponent contentComponent;
 
     juce::Image background = juce::ImageCache::getFromMemory (BinaryData::TFG_AUROVOX_BG_jpg,
                                                               BinaryData::TFG_AUROVOX_BG_jpgSize);

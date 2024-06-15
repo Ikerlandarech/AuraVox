@@ -1,6 +1,4 @@
 /*
-Copyright 2022 The DDSP-VST Authors.
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -15,7 +13,6 @@ limitations under the License.
 */
 
 #include "audio/tflite/InferencePipeline.h"
-#include "util/InputUtils.h"
 
 namespace ddsp
 {
@@ -58,9 +55,6 @@ void InferencePipeline::prepareToPlay (double sr, int samplesPerBlock)
     resampledModelInputBuffer.setSize (1, kModelFrameSize);
     synthesisBuffer.setSize (1, kModelHopSize);
     resampledModelOutputBuffer.setSize (1, userHopSize);
-
-    midiInputProcessor.prepareToPlay (sampleRate, userHopSize);
-
     reset();
 }
 
@@ -85,7 +79,6 @@ void InferencePipeline::reset()
     {
         juce::AudioBuffer<float> zeroBuf (1, userFrameSize);
         zeroBuf.clear();
-        // Do we need to reset input/outputRingBuffer here?
         inputRingBuffer.push (zeroBuf);
     }
 
@@ -97,17 +90,6 @@ void InferencePipeline::reset()
 
 void InferencePipeline::processBlock (juce::AudioBuffer<float>& buffer)
 {
-    //if (JucePlugin_IsSynth)
-    //{
-    //    midiInputProcessor.processMidiMessages (midiMessages);
-
-    //    // TODO: move this to slider callback
-    //    midiInputProcessor.setAttack (*tree.getRawParameterValue ("Attack"));
-    //    midiInputProcessor.setDecay (*tree.getRawParameterValue ("Decay"));
-    //    midiInputProcessor.setSustain (*tree.getRawParameterValue ("Sustain"));
-    //    midiInputProcessor.setRelease (*tree.getRawParameterValue ("Release"));
-    //}
-
     inputRingBuffer.push (buffer);
 }
 
@@ -134,29 +116,18 @@ void InferencePipeline::render()
 
     while (inputRingBuffer.getNumReady() >= userFrameSize)
     {
-        if (JucePlugin_IsSynth)
-        {
-            predictControlsInput = midiInputProcessor.getCurrentPredictControlsInput();
-        }
-        else
-        {
-            // 2a: Downsample user frame's worth of input buffer.
-            jassert (modelInputBuffer.getNumSamples() == userFrameSize);
-            inputRingBuffer.copy (modelInputBuffer);
-            inputInterpolator.process (sampleRate / kModelSampleRate_Hz,
-                                       modelInputBuffer.getReadPointer (0),
-                                       resampledModelInputBuffer.getWritePointer (0),
-                                       resampledModelInputBuffer.getNumSamples());
-            jassert (resampledModelInputBuffer.getNumSamples() == kModelFrameSize);
 
-            // 2b: Run through the model.
-            featureExtractionModel->call (resampledModelInputBuffer, predictControlsInput);
-        }
+        // 2a: Downsample user frame's worth of input buffer.
+        jassert (modelInputBuffer.getNumSamples() == userFrameSize);
+        inputRingBuffer.copy (modelInputBuffer);
+        inputInterpolator.process (sampleRate / kModelSampleRate_Hz,
+                                    modelInputBuffer.getReadPointer (0),
+                                    resampledModelInputBuffer.getWritePointer (0),
+                                    resampledModelInputBuffer.getNumSamples());
+        jassert (resampledModelInputBuffer.getNumSamples() == kModelFrameSize);
 
-        // Shift the pitch before the UI and model.
-        predictControlsInput.f0_hz =
-            offsetPitch (predictControlsInput.f0_hz, *tree.getRawParameterValue ("PitchShift"));
-        predictControlsInput.f0_norm = normalizedPitch (predictControlsInput.f0_hz);
+        // 2b: Run through the model.
+        featureExtractionModel->call (resampledModelInputBuffer, predictControlsInput);
 
         // Store and scale the normalized pitch and loudness.
         currentPitch.store (predictControlsInput.f0_norm);

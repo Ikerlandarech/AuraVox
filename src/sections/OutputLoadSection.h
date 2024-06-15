@@ -19,7 +19,8 @@ using ButtonAttachment = juce::AudioProcessorValueTreeState::ButtonAttachment;
 class OutputLoadSection : public juce::Component,
                     public juce::Button::Listener,
                     public juce::FileDragAndDropTarget,
-                    public juce::ChangeBroadcaster
+                    public juce::ChangeBroadcaster,
+                    public juce::DragAndDropContainer
 {
 public:
     OutputLoadSection(TFGAuroVoxStudioAudioProcessor* p);
@@ -33,6 +34,7 @@ public:
     void filesDropped(const juce::StringArray& files, int x, int y) override;
     void mouseDown(const juce::MouseEvent& event) override;
     juce::String getSelectedModelName(int selectedModel);
+    void mouseDrag (const juce::MouseEvent& event) override;
 
 private:
     int playHeadPosition;
@@ -53,6 +55,7 @@ private:
     juce::String outputFileName { "" };
     int selectedModel = 0;
     juce::String selectedModelName { "" };
+    juce::File outputFile;
 
     void waveformDisplay(juce::Graphics&);
 

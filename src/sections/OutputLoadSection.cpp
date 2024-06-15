@@ -117,29 +117,11 @@ void OutputLoadSection::waveformDisplay(juce::Graphics& g)
 
 bool OutputLoadSection::isInterestedInFileDrag(const juce::StringArray& files)
 {
-    //for (auto file : files)
-    //{
-    //    if (file.contains(".wav") || file.contains(".mp3") || file.contains(".aif"))
-    //    {
-    //        return true;
-    //    }
-    //}
     return false;
 }
 
 void OutputLoadSection::filesDropped(const juce::StringArray& files, int x, int y)
 {
-    //for (auto file : files)
-    //{
-    //    if (isInterestedInFileDrag(file))
-    //    {
-    //        auto myFile = std::make_unique<juce::File>(file);
-    //        fileName = myFile->getFileNameWithoutExtension();
-
-    //        processor.loadOutputFile(file);
-    //    }
-    //}
-    //repaint();
 }
 
 void OutputLoadSection::mouseDown(const juce::MouseEvent& event)
@@ -158,4 +140,12 @@ juce::String OutputLoadSection::getSelectedModelName (int selectedModel)
         case 7:     return "Trumpet";
         default:    return "_";
     }
+}
+
+void OutputLoadSection::mouseDrag (const juce::MouseEvent& event)
+{
+    juce::StringArray files;
+    outputFile = processor.getOutputFile();
+    files.add (outputFile.getFullPathName());
+    performExternalDragDropOfFiles (files, false);
 }

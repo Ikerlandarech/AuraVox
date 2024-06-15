@@ -61,7 +61,6 @@ public:
 
     ////////////////////////////////////////////////////////////////////////////////
     void loadInputFile();
-    void loadOutputFile();
     void loadInputFile (const juce::String& path);
     void loadOutputFile (const juce::String& path);
     void processOutputFile ();
@@ -70,6 +69,8 @@ public:
     void setOutputToggleButtonState (bool newState);
     void playInputButtonClicked();
     void playOutputButtonClicked();
+
+    juce::String getSelectedModelName (int selectedModel);
 
     juce::AudioBuffer<float>& getInputWaveformBuffer() { return inputWaveformBuffer; }
     juce::AudioBuffer<float>& getOutputWaveformBuffer() { return outputWaveformBuffer; }
@@ -92,12 +93,15 @@ public:
     ddsp::ModelLibrary& getModelLibrary();
     juce::String getFileName();
     void setFileName (juce::File);
+    juce::File getOutputFile();
+    void setIndex(int idx);
 
 private:
     std::atomic<bool> isInputPlaying { false };
     std::atomic<bool> isOutputPlaying { false };
     std::atomic<bool> isFileLoading { false };
     std::atomic<int> sampleCount { 0 };
+    juce::String selectedModelName { "" };
 
     bool singleThreaded = false;
     int maxSamples;

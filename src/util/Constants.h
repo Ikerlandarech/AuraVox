@@ -36,6 +36,13 @@ inline constexpr std::string_view kOutputTensorName_Harmonics = "StatefulPartiti
 inline constexpr std::string_view kOutputTensorName_NoiseAmps = "StatefulPartitionedCall:2";
 inline constexpr std::string_view kOutputTensorName_State = "StatefulPartitionedCall:3";
 
+// The models were trained at 16 kHz sample rate.
+constexpr float kModelSampleRate_Hz = 16000.0f;
+constexpr float kModelInferenceTimerCallbackInterval_ms = 20.0f;
+constexpr float kTotalInferenceLatency_ms = 64.0f;
+constexpr int kModelFrameSize = 1024;
+constexpr int kModelHopSize = 320;
+
 constexpr int kNumPredictControlsInputTensors = 3;
 constexpr int kNumPredictControlsOutputTensors = 4;
 constexpr int kNumFeatureExtractionThreads = 4;
@@ -47,19 +54,4 @@ constexpr int kLoudnessSize = 1;
 constexpr int kF0Size = 1;
 constexpr int kNumEmbeddedPredictControlsModels = 11;
 constexpr int kGruModelStateSize = 512;
-
-// The models were trained at 16 kHz sample rate.
-constexpr float kModelSampleRate_Hz = 16000.0f;
-constexpr float kModelInferenceTimerCallbackInterval_ms = 20.0f;
-constexpr float kTotalInferenceLatency_ms = 64.0f;
-constexpr int kModelFrameSize = 1024;
-constexpr int kModelHopSize = 320;
-
-// URLs.
-inline constexpr std::string_view kModelTrainingColabUrl = "https://g.co/magenta/train-ddsp-vst";
-inline constexpr std::string_view kInfoUrl = "https://g.co/magenta/ddsp-vst-help";
-
-constexpr float kPitchRangeMin_Hz = 8.18f; // midi 0
-constexpr float kPitchRangeMax_Hz = 12543.84f; // midi 127
-
 } // namespace ddsp

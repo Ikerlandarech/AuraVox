@@ -6,8 +6,7 @@ TFGAuroVoxStudioAudioProcessorEditor::TFGAuroVoxStudioAudioProcessorEditor (TFGA
     : AudioProcessorEditor (&p),
       audioProcessor (p),
       studioSection (&p),
-      controlSection (&p),
-      contentComponent (p)
+      controlSection (&p)
 {
     //addAndMakeVisible (contentComponent);
 
@@ -50,7 +49,6 @@ void TFGAuroVoxStudioAudioProcessorEditor::paint (juce::Graphics& g)
 void TFGAuroVoxStudioAudioProcessorEditor::resized()
 {
     auto area = getLocalBounds();
-    contentComponent.setBounds (area);
 
     //ALL:
     auto editorBounds = getBounds();

@@ -20,7 +20,6 @@ limitations under the License.
 
 #include "audio/AudioRingBuffer.h"
 #include "audio/HarmonicSynthesizer.h"
-#include "audio/MidiInputProcessor.h"
 #include "audio/NoiseSynthesizer.h"
 #include "audio/tflite/FeatureExtractionModel.h"
 #include "audio/tflite/ModelBase.h"
@@ -87,9 +86,6 @@ private:
     HarmonicSynthesizer harmonicSynthesizer;
     AudioFeatures predictControlsInput;
     SynthesisControls synthesisInput;
-
-    // MIDI input.
-    MidiInputProcessor midiInputProcessor;
 };
 
 } // namespace ddsp

@@ -1,6 +1,4 @@
 /*
-Copyright 2022 The DDSP-VST Authors.
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -38,8 +36,6 @@ void MidiInputProcessor::processMidiMessages (juce::MidiBuffer& midiMessages)
         if (message.isNoteOn())
         {
             adsr.noteOn();
-
-            // TODO: Add a lock-free message queue to pass midi messages.
             currentMidiNote.store (midiNoteNumber, std::memory_order_release);
             currentMidiVelocity.store (message.getFloatVelocity(), std::memory_order_release);
         }

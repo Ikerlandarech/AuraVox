@@ -36,53 +36,34 @@ ModelLibrary::~ModelLibrary() {}
 
 void ModelLibrary::loadEmbeddedModels()
 {
-    models.emplace_back (ModelInfo ("Flute",
-                                    loadModelTimestamp (BinaryData::Flute_tflite, BinaryData::Flute_tfliteSize),
-                                    BinaryData::Flute_tflite,
-                                    BinaryData::Flute_tfliteSize));
-
     models.emplace_back (ModelInfo ("Violin",
                                     loadModelTimestamp (BinaryData::Violin_tflite, BinaryData::Violin_tfliteSize),
                                     BinaryData::Violin_tflite,
                                     BinaryData::Violin_tfliteSize));
-
-    models.emplace_back (ModelInfo ("Trumpet",
-                                    loadModelTimestamp (BinaryData::Trumpet_tflite, BinaryData::Trumpet_tfliteSize),
-                                    BinaryData::Trumpet_tflite,
-                                    BinaryData::Trumpet_tfliteSize));
-
-    models.emplace_back (ModelInfo ("Saxophone",
-                                    loadModelTimestamp (BinaryData::Saxophone_tflite, BinaryData::Saxophone_tfliteSize),
-                                    BinaryData::Saxophone_tflite,
-                                    BinaryData::Saxophone_tfliteSize));
-    models.emplace_back (ModelInfo ("Bassoon",
-                                    loadModelTimestamp (BinaryData::Bassoon_tflite, BinaryData::Bassoon_tfliteSize),
-                                    BinaryData::Bassoon_tflite,
-                                    BinaryData::Bassoon_tfliteSize));
     models.emplace_back (ModelInfo ("Clarinet",
                                     loadModelTimestamp (BinaryData::Clarinet_tflite, BinaryData::Clarinet_tfliteSize),
                                     BinaryData::Clarinet_tflite,
                                     BinaryData::Clarinet_tfliteSize));
-    models.emplace_back (ModelInfo ("Melodica",
-                                    loadModelTimestamp (BinaryData::Melodica_tflite, BinaryData::Melodica_tfliteSize),
-                                    BinaryData::Melodica_tflite,
-                                    BinaryData::Melodica_tfliteSize));
-    models.emplace_back (ModelInfo ("Sitar",
-                                    loadModelTimestamp (BinaryData::Sitar_tflite, BinaryData::Sitar_tfliteSize),
-                                    BinaryData::Sitar_tflite,
-                                    BinaryData::Sitar_tfliteSize));
-    models.emplace_back (ModelInfo ("Trombone",
-                                    loadModelTimestamp (BinaryData::Trombone_tflite, BinaryData::Trombone_tfliteSize),
-                                    BinaryData::Trombone_tflite,
-                                    BinaryData::Trombone_tfliteSize));
+    models.emplace_back (ModelInfo ("Flute",
+                                    loadModelTimestamp (BinaryData::Flute_tflite, BinaryData::Flute_tfliteSize),
+                                    BinaryData::Flute_tflite,
+                                    BinaryData::Flute_tfliteSize));
     models.emplace_back (ModelInfo ("Tuba",
                                     loadModelTimestamp (BinaryData::Tuba_tflite, BinaryData::Tuba_tfliteSize),
                                     BinaryData::Tuba_tflite,
                                     BinaryData::Tuba_tfliteSize));
-    models.emplace_back (ModelInfo ("Vowels",
-                                    loadModelTimestamp (BinaryData::Vowels_tflite, BinaryData::Vowels_tfliteSize),
-                                    BinaryData::Vowels_tflite,
-                                    BinaryData::Vowels_tfliteSize));
+    models.emplace_back (ModelInfo ("Trombone",
+                                    loadModelTimestamp (BinaryData::Trombone_tflite, BinaryData::Trombone_tfliteSize),
+                                    BinaryData::Trombone_tflite,
+                                    BinaryData::Trombone_tfliteSize));
+    models.emplace_back (ModelInfo ("Saxophone",
+                                    loadModelTimestamp (BinaryData::Saxophone_tflite, BinaryData::Saxophone_tfliteSize),
+                                    BinaryData::Saxophone_tflite,
+                                    BinaryData::Saxophone_tfliteSize));
+    models.emplace_back (ModelInfo ("Trumpet",
+                                    loadModelTimestamp (BinaryData::Trumpet_tflite, BinaryData::Trumpet_tfliteSize),
+                                    BinaryData::Trumpet_tflite,
+                                    BinaryData::Trumpet_tfliteSize));
 
     jassert (models.size() == kNumEmbeddedPredictControlsModels);
 }
@@ -163,7 +144,6 @@ juce::String ModelLibrary::loadModelTimestamp (const char* modelDataPtr, size_t 
     {
         DBG ("Cannot access model metadata.");
     }
-    // Maybe something else should go here...
     return "";
 }
 

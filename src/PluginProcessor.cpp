@@ -11,8 +11,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-#include "ui/ParamInfo.h"
-#include "util/InputUtils.h"
+#include "util/ParamInfo.h"
 #include <juce_audio_utils/juce_audio_utils.h>
 
 using namespace ddsp;
@@ -226,7 +225,7 @@ void TFGAuroVoxStudioAudioProcessor::processBlock (juce::AudioBuffer<float>& buf
 //==============================================================================
 bool TFGAuroVoxStudioAudioProcessor::hasEditor() const
 {
-    return true; // (change this to false if you choose to not supply an editor)
+    return true;
 }
 
 juce::AudioProcessorEditor* TFGAuroVoxStudioAudioProcessor::createEditor()
@@ -283,41 +282,20 @@ void TFGAuroVoxStudioAudioProcessor::loadInputFile (const juce::String& path)
     isFileLoading = true;
 }
 
-void TFGAuroVoxStudioAudioProcessor::loadOutputFile()
-{
-    juce::FileChooser fileChooser { "Choose your Audio File" };
-    if (fileChooser.browseForFileToOpen())
-    {
-        auto file = fileChooser.getResult();
-        audioFormatReader = audioFormatManager.createReaderFor (file);
-    }
-    auto sampleLength = static_cast<int> (audioFormatReader->lengthInSamples);
-    inputWaveformBuffer.setSize (1, sampleLength);
-    audioFormatReader->read (&inputWaveformBuffer, 0, sampleLength, 0, true, false);
-
-    auto buffer = inputWaveformBuffer.getReadPointer (0);
-    updateMaxSamples (sampleLength);
-
-    std::unique_ptr<juce::AudioFormatReaderSource> tempSource (
-        new juce::AudioFormatReaderSource (audioFormatReader, true));
-    inputTransport.setSource (tempSource.get());
-    playSource.reset (tempSource.release());
-}
-
 void TFGAuroVoxStudioAudioProcessor::loadOutputFile (const juce::String& path)
 {
     auto file = juce::File (path);
     audioFormatReader = audioFormatManager.createReaderFor (file);
     auto sampleLength = static_cast<int> (audioFormatReader->lengthInSamples);
-    inputWaveformBuffer.setSize (1, sampleLength);
-    audioFormatReader->read (&inputWaveformBuffer, 0, sampleLength, 0, true, false);
+    outputWaveformBuffer.setSize (1, sampleLength);
+    audioFormatReader->read (&outputWaveformBuffer, 0, sampleLength, 0, true, false);
 
-    auto buffer = inputWaveformBuffer.getReadPointer (0);
+    auto buffer = outputWaveformBuffer.getReadPointer (0);
     updateMaxSamples (sampleLength);
 
     std::unique_ptr<juce::AudioFormatReaderSource> tempSource (
         new juce::AudioFormatReaderSource (audioFormatReader, true));
-    inputTransport.setSource (tempSource.get());
+    outputTransport.setSource (tempSource.get());
     playSource.reset (tempSource.release());
 }
 
@@ -351,6 +329,42 @@ void TFGAuroVoxStudioAudioProcessor::setFileName (juce::File myFile)
     fileName = myFile.getFileNameWithoutExtension();
 }
 
+juce::File TFGAuroVoxStudioAudioProcessor::getOutputFile()
+{
+    selectedModelName = getSelectedModelName (currentModel);
+    juce::File outputFile = juce::File::getSpecialLocation (juce::File::tempDirectory)
+                                .getNonexistentChildFile (fileName + "_" + selectedModelName, ".wav");
+
+    if (outputWaveformBuffer.getNumSamples() > 0)
+    {
+        std::unique_ptr<juce::FileOutputStream> fileStream (outputFile.createOutputStream());
+
+        if (fileStream != nullptr)
+        {
+            juce::WavAudioFormat wavFormat;
+            juce::AudioFormatWriter* writer = wavFormat.createWriterFor (
+                fileStream.get(),
+                44100.0,
+                static_cast<unsigned int> (outputWaveformBuffer.getNumChannels()), //Channels as unsigned int
+                16, //Bits per sample
+                {}, //Metadata options as empty dictionary
+                0); //Maximum number of samples to write at once
+
+            if (writer != nullptr)
+            {
+                fileStream
+                    .release(); //Passes responsibility for deleting the stream to the writer object that is now using it
+                writer->writeFromAudioSampleBuffer (outputWaveformBuffer, 0, outputWaveformBuffer.getNumSamples());
+                delete writer; //Since we created the writer with `new`, we must delete it manually.
+            }
+        }
+    }
+
+    return outputFile;
+}
+
+void TFGAuroVoxStudioAudioProcessor::setIndex (int idx) { currentModel = idx; }
+
 
 void TFGAuroVoxStudioAudioProcessor::setInputToggleButtonState (bool newState) { isInputPlaying = newState; }
 void TFGAuroVoxStudioAudioProcessor::setOutputToggleButtonState (bool newState) { isOutputPlaying = newState; }
@@ -380,6 +394,21 @@ void TFGAuroVoxStudioAudioProcessor::playOutputButtonClicked()
     {
         outputTransport.stop();
         outputTransport.setPosition (0.0);
+    }
+}
+
+juce::String TFGAuroVoxStudioAudioProcessor::getSelectedModelName (int selectedModel)
+{
+    switch (selectedModel)
+    {
+        case 1:     return "Violin";
+        case 2:     return "Clarinet";
+        case 3:     return "Flute";
+        case 4:     return "Tuba";
+        case 5:     return "Trombone";
+        case 6:     return "Saxophone";
+        case 7:     return "Trumpet";
+        default:    return "_";
     }
 }
 
