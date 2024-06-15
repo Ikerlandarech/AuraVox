@@ -9,9 +9,9 @@ The aim of AuraVox is to elevate vocal expressiveness by merging the organic qua
 
 AuraVox comprises two main sections: the Load Section and the Studio Section.
 
-- Load Section: Users can load files or drag and drop the input audio into the target audio player. Upon loading a valid file, the waveform is automatically displayed and can be played back using the target audio Play/Pause button.
+- **Load Section**: Users can load files or drag and drop the input audio into the target audio player. Upon loading a valid file, the waveform is automatically displayed with its name and can be played back using the target audio Play/Pause button.
 
-- Studio Section: After selecting the desired audio for timbre transfer, users can choose from seven different pretrained TensorFlow Lite instrument models by clicking on the model in the Studio Section. Once an instrument model is selected, AuraVox runs the TensorFlow inference pipeline internally on a separate thread. The Synthesized Audio Player then displays the converted output file, which can be played using the synthesized audio Play/Pause button. Finally, users can drag and drop the timbre transferred output file directly into their Digital Audio Workstation to continue working on their session.
+- **Studio Section**: After selecting the desired audio for timbre transfer, users can choose from **7 different TensorFlow Lite instrument models** by clicking on the model in the Studio Section. Once an instrument model is selected, AuraVox runs the TensorFlow inference pipeline internally on a separate thread. The Synthesized Audio Player then displays the converted output file, which can be played using the synthesized audio Play/Pause button. Finally, users can drag and drop the timbre-transferred output file directly into their Digital Audio Workstation to continue working on their session.
 
 AuraVox is designed with minimalism in mind, featuring the fewest possible controls to avoid distracting users with parameter tweaking. This simplicity ensures seamless integration into users' workflows, allowing quick and effortless use of the plugin.
 
