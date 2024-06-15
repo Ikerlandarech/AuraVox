@@ -2,6 +2,7 @@
 
 <div align="center"> AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer. </div>
 
+
 <div align="center"> The aim of AuraVox is to elevate vocal expressiveness by merging the organic qualities of the human voice with the acoustic properties of instruments. This fusion opens a new realm of possibilities, preserving the human organic quality in the expression and articulation of the instrument sound. </div>
 ___
 
