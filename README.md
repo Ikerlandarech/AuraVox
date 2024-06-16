@@ -8,7 +8,7 @@ ___
 <sup>_This project is part of the thesis ***From Voice to Virtuosity: DDSP-based Timbre Transfer*** presented at Universitat Pompeu Fabra, Barcelona in July 2024_.</sup>
 
 > More information can be found at:
-> > Original Thesis Publication is available at: [From Voice to Virtuosity DDSP-based Timbre Transfer](https://github.com/user-attachments/files/15848685/From.Voice.to.Virtuosity.DDSP-based.Timbre.Transfer.pdf)
+> > Original Thesis Publication is available at: [From Voice to Virtuosity: DDSP-based Timbre Transfer](https://github.com/user-attachments/files/15848685/From.Voice.to.Virtuosity.DDSP-based.Timbre.Transfer.pdf)
 > > 
 > > Online Supplement available at: [***Reki Sounds [Password: auravox]***](https://www.rekisounds.com/thesis).
 
