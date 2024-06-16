@@ -1,12 +1,3 @@
-/*
-  ==============================================================================
-
-    CustomLookAndFeel.cpp
-    Created: 3 Mar 2024 5:53:12pm
-    Author:  Iker
-
-  ==============================================================================
-*/
 #include "CustomLookAndFeel.h"
 
 CustomLookAndFeel::CustomLookAndFeel()

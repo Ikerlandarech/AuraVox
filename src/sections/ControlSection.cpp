@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    ControlSection.cpp
-    Created: 2 Mar 2024 5:44:16pm
-    Author:  Iker
-
-  ==============================================================================
-*/
-
 #include <JuceHeader.h>
 #include "ControlSection.h"
 #include "PluginProcessor.h"

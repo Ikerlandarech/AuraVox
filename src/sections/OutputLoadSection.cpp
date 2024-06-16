@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    LoadSection.cpp
-    Created: 2 Mar 2024 11:44:02pm
-    Author:  Iker
-
-  ==============================================================================
-*/
-
 #include "OutputLoadSection.h"
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
