@@ -15,7 +15,7 @@ ___
 # GUI Overview
 ![AURAVOX - GITREPO_GUI_EXPLAINED_NEW](https://github.com/Ikerlandarech/AuraVox/assets/91797318/f3475995-c541-4a4e-af10-ecbe075d712e)
 
-AuraVox comprises two main sections: the Load Section and the Studio Section.
+AuraVox comprises two main sections:
 
 - **Load Section**: Users can load files or drag and drop the input audio into the target audio player. Upon loading a valid file, the waveform is automatically displayed with its name and can be played back using the target audio Play/Pause button.
 
