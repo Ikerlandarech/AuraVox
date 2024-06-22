@@ -24,7 +24,7 @@ AuraVox comprises two main sections:
       <strong>Load Section</strong>: Users can load files or drag and drop the input audio into the target audio player. Upon loading a valid file, the waveform is automatically displayed with its name and can be played back using the target audio Play/Pause button.
     </li>
     <li>
-      <strong>Studio Section</strong>: After selecting the desired audio for timbre transfer, users can choose from <u>7 different TensorFlow Lite instrument models</u> by clicking on the model in the Studio Section. Once an instrument model is selected, AuraVox runs the TensorFlow inference pipeline internally on a separate thread. The Synthesized Audio Player then displays the converted output file, which can be played using the synthesized audio Play/Pause button. Finally, users can drag and drop the timbre-transferred output file directly into their Digital Audio Workstation to continue working on their session.
+      <strong>Studio Section</strong>: After selecting the desired audio for timbre transfer, users can choose from __7 different TensorFlow Lite instrument models__ by clicking on the model in the Studio Section. Once an instrument model is selected, AuraVox runs the TensorFlow inference pipeline internally on a separate thread. The Synthesized Audio Player then displays the converted output file, which can be played using the synthesized audio Play/Pause button. Finally, users can drag and drop the timbre-transferred output file directly into their Digital Audio Workstation to continue working on their session.
     </li>
   </ul>
 </div>
