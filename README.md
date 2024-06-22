@@ -41,9 +41,9 @@ Integrating the decoder posed an additional challenge due to the limited selecti
 One of the primary implementation challenges has been the variability in frame rates, stemming from differing user block sizes and sample rates, alongside a fixed model input size (64ms), hop size (20ms), and sample rate (16kHz). This disparity is addressed through resampling, FIFOs at input and output stages, and threading inference separately. Given that the pretrained models are trained at 16kHz, input audio is downsampled to this rate before inference. Subsequently, synthesized audio is upsampled to the original user sample rate.
 
 # Distribution
-
+<div align="justify">
 We are actively working on making our plugin globally available. However, this is a complex task due to the number of third-party libraries required to perform the timbre transfer task effectively such as TensorFlow APIs, Ruy, Pasta, Flatbuffers, TFRT, Protobuf... All these dependencies are essential for ensuring the high performance and accuracy of our plugin. Integrating and distributing these libraries across various environments and platforms presents significant challenges. We appreciate your patience as we work towards a solution that will enable seamless installation and usage of our plugin globally.
-
+</div>
 <div align="right">
 If you have any suggestions or would like to contribute to this effort, please feel free to reach out or contribute to our repository.
 </div>
