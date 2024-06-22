@@ -35,8 +35,7 @@ https://github.com/Ikerlandarech/AuraVox/assets/91797318/65ce21a2-6265-4ef7-8e34
 # Methodology
 <div align="justify">
 Initially, the model architecture presented during the prototyping phase needed to be translated into an audio plugin architecture. This was achieved by integrating the models into the C++ codebase using the TensorFlow C API, incorporating its corresponding CUDA kernels and backward pass implementations. For model inference, all TensorFlow computations are executed on a separate thread, leveraging TensorFlow Lite, which offers significant optimizations to prevent buffer underruns in the main audio processing thread.
-
-
+<br>
 The following pipeline architecture diagram illustrates the system's structure.
 </div>
 
