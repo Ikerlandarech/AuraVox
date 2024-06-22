@@ -1,9 +1,8 @@
 # AURAVOX
-<div align="justify">
 AuraVox is a virtual instrument built in C++ that performs real-time timbre transfer.
 
 The aim of AuraVox is to elevate vocal expressiveness by merging the organic qualities of the human voice with the acoustic properties of instruments. This fusion opens a new realm of possibilities, preserving the human organic quality in the expression and articulation of the instrument sound.
-</div>
+
 ___
 
 <sup>_This project is part of the thesis ***From Voice to Virtuosity: DDSP-based Timbre Transfer*** presented at Universitat Pompeu Fabra, Barcelona in July 2024_.</sup>
@@ -18,6 +17,7 @@ ___
 
 AuraVox comprises two main sections:
 <div align="justify">
+  
 - **Load Section**: Users can load files or drag and drop the input audio into the target audio player. Upon loading a valid file, the waveform is automatically displayed with its name and can be played back using the target audio Play/Pause button.
 
 - **Studio Section**: After selecting the desired audio for timbre transfer, users can choose from **7 different TensorFlow Lite instrument models** by clicking on the model in the Studio Section. Once an instrument model is selected, AuraVox runs the TensorFlow inference pipeline internally on a separate thread. The Synthesized Audio Player then displays the converted output file, which can be played using the synthesized audio Play/Pause button. Finally, users can drag and drop the timbre-transferred output file directly into their Digital Audio Workstation to continue working on their session.
