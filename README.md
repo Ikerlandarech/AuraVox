@@ -44,8 +44,9 @@ One of the primary implementation challenges has been the variability in frame r
 
 We are actively working on making our plugin globally available. However, this is a complex task due to the number of third-party libraries required to perform the timbre transfer task effectively such as TensorFlow APIs, Ruy, Pasta, Flatbuffers, TFRT, Protobuf... All these dependencies are essential for ensuring the high performance and accuracy of our plugin. Integrating and distributing these libraries across various environments and platforms presents significant challenges. We appreciate your patience as we work towards a solution that will enable seamless installation and usage of our plugin globally.
 
-<p style="align: right;"> If you have any suggestions or would like to contribute to this effort, please feel free to reach out or contribute to our repository. </p>
-
+<div align="right">
+If you have any suggestions or would like to contribute to this effort, please feel free to reach out or contribute to our repository.
+</div>
 
 
 
