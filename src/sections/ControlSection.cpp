@@ -15,9 +15,6 @@ ControlSection::ControlSection(TFGAuroVoxStudioAudioProcessor* p)
     addAndMakeVisible (outputLoadSection);
     addAndMakeVisible(inputPlayButton);
     addAndMakeVisible(outputPlayButton);
-
-    /*inputPlayButton.getToggleState();*/
-
 }
 
 ControlSection::~ControlSection()

@@ -14,7 +14,7 @@ limitations under the License.
 
 /*
 The noise is synthesised by filtering uniform white noise with an FIR
-filter created using the frequency-sampling technique, where coeffiencents
+filter created using the frequency-sampling technique, where coefficients
 are generated from the DDSP model. A zero-phase Hann Window is then applied
 to the impulse response in the time domain in order to smooth and enhance it.
  

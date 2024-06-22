@@ -1,28 +1,3 @@
-//#pragma once
-//
-//#include "JuceHeader.h"
-//
-//#include "PluginProcessor.h"
-//#include "ui/ContentComponent.h"
-//
-////==============================================================================
-///**
-//*/
-//class DDSPAudioProcessorEditor : public juce::AudioProcessorEditor
-//{
-//public:
-//    DDSPAudioProcessorEditor (DDSPAudioProcessor&);
-//    ~DDSPAudioProcessorEditor() override;
-//
-//    void resized() override;
-//
-//private:
-//    DDSPAudioProcessor& audioProcessor;
-//    ContentComponent contentComponent;
-//
-//    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DDSPAudioProcessorEditor)
-//};
-
 #pragma once
 
 #include "sections/ControlSection.h"

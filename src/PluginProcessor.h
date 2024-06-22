@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    PluginProcessor.h
-    Created: 2 Mar 2024 11:44:02pm
-    Author:  Iker
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include "JuceHeader.h"
@@ -70,11 +60,6 @@ public:
     void playInputButtonClicked();
     void playOutputButtonClicked();
 
-    juce::String getSelectedModelName (int selectedModel);
-
-    juce::AudioBuffer<float>& getInputWaveformBuffer() { return inputWaveformBuffer; }
-    juce::AudioBuffer<float>& getOutputWaveformBuffer() { return outputWaveformBuffer; }
-
     std::atomic<bool>& isInputPlayed() { return isInputPlaying; }
     std::atomic<bool>& isOutputPlayed() { return isOutputPlaying; }
     std::atomic<bool>& isFileLoaded() { return isFileLoading; }
@@ -84,7 +69,7 @@ public:
 
     void loadModel (int modelIdx);
 
-    // Getters.
+    // Getters:
     int getCurrentModel() const;
     float getRMS() const;
     float getPitch() const;
@@ -92,9 +77,14 @@ public:
     juce::AudioProcessorValueTreeState& getValueTree();
     ddsp::ModelLibrary& getModelLibrary();
     juce::String getFileName();
-    void setFileName (juce::File);
     juce::File getOutputFile();
+
+    // Setters:
+    void setFileName (juce::File);
     void setIndex(int idx);
+    juce::String getSelectedModelName (int selectedModel);
+    juce::AudioBuffer<float>& getInputWaveformBuffer() { return inputWaveformBuffer; }
+    juce::AudioBuffer<float>& getOutputWaveformBuffer() { return outputWaveformBuffer; }
 
 private:
     std::atomic<bool> isInputPlaying { false };

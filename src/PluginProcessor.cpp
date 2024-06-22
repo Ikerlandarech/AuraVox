@@ -1,14 +1,3 @@
-/*
-  ==============================================================================
-
-    PluginProcessor.cpp
-    Created: 2 Mar 2024 11:44:02pm
-    Author:  Iker
-
-  ==============================================================================
-*/
-
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "util/ParamInfo.h"
@@ -88,7 +77,7 @@ void TFGAuroVoxStudioAudioProcessor::changeProgramName (int index, const juce::S
 void TFGAuroVoxStudioAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // The pitch detection model needs a full 64ms frame to get an accurate reading.
-    // Therefore the pulgin latency is set to 64ms.
+    // Therefore the plugin latency is set to 64ms.
     setLatencySamples ((kTotalInferenceLatency_ms / 1000.0f) * sampleRate);
 
     reverb.setSampleRate (sampleRate);

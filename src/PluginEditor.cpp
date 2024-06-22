@@ -8,11 +8,7 @@ TFGAuroVoxStudioAudioProcessorEditor::TFGAuroVoxStudioAudioProcessorEditor (TFGA
       studioSection (&p),
       controlSection (&p)
 {
-    //addAndMakeVisible (contentComponent);
-
     addAndMakeVisible(studioSection);
-    //inputLoadSection.addChangeListener (&controlSection);
-    //outputLoadSection.addChangeListener (&controlSection);
     addAndMakeVisible (controlSection);
 
 
@@ -42,7 +38,6 @@ void TFGAuroVoxStudioAudioProcessorEditor::paint (juce::Graphics& g)
                                          getLocalBounds().getY() + 5,
                                          getLocalBounds().getWidth() * 0.5f,
                                          getLocalBounds().getHeight() * 0.15f);
-        //g.drawText ("AuraVox Studio", textBounds, juce::Justification::centred, true);
     }
 }
 
